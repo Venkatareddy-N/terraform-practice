@@ -1,1 +1,3 @@
-Practice Terraform joindevops classes
+This is my terraform practice labs
+
+classes provided by joindevops-siva
