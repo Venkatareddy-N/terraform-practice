@@ -1,22 +1,18 @@
 resource "aws_instance" "terraform_server" {
-
-  ami                    = "ami-09c813fb71547fc4f"
-  instance_type          = "t2.micro"
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+  tags                   = var.tags
 
-  tags = {
-    Name = "DevOps-Master"
-  }
 }
 
 resource "aws_security_group" "allow_ssh" {
   name = "allow-ssh"
-
   ingress {
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    from_port        = var.from_port
+    to_port          = var.to_port
+    protocol         = var.protocol
+    cidr_blocks      = var.ingress_cidr
     ipv6_cidr_blocks = ["::/0"]
   }
 
