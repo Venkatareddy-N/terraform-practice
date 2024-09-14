@@ -35,5 +35,6 @@ variable "tags" {
     Environment = "Dev"
     Component   = "Backend"
     Terraform   = "True"
+    Project = "Expense"
   }
 }
