@@ -5,8 +5,8 @@ resource "aws_instance" "expense" {
   vpc_security_group_ids = ["sg-0ce851e2131cc0a28"]
   tags = merge(
     var.common_tags,
-    var.tags,{
-    Name = each.key
+    var.tags, {
+      Name = each.key
     }
   )
 }

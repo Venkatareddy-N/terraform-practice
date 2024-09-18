@@ -1,5 +1,5 @@
 variable "instance_names" {
-  type = map
+  type = map(any)
 }
 
 variable "zone_id" {
@@ -10,16 +10,18 @@ variable "domain_name" {
   default = "venkatswan.online"
 }
 
-
 variable "common_tags" {
   default = {
-    Project = "expense"
+    Project   = "expense"
     Terraform = "True"
 
   }
 }
 
 variable "tags" {
-  type = map
-  
+  type = map(any)
+}
+
+variable "environment" {
+  default = "dev"
 }
