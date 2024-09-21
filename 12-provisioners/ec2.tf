@@ -11,26 +11,30 @@ resource "aws_instance" "terraform_server" {
     command = "echo  ${self.public_ip} > public_ip.out"
   }
 
-  connection {
-    type     = "ssh"
-    user     = "ec2-user"
-    password = "DevOps321"
-    host     = self.public_ip
+   provisioner "local-exec" {
+    command = "echo  ${self.private_ip} > private_ip.out"
   }
 
-  provisioner "remote-exec" {
-    inline = [
-      "sudo dnf install nginx -y",
-      "sudo systemctl start nginx"
-    ]
-  }
+  # connection {
+  #   type     = "ssh"
+  #   user     = "ec2-user"
+  #   password = "DevOps321"
+  #   host     = self.public_ip
+  # }
 
-  provisioner "remote-exec" {
-    when = destroy
-    inline = [
-      "sudo systemctl stop nginx"
-    ]
-  }
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "sudo dnf install nginx -y",
+  #     "sudo systemctl start nginx"
+  #   ]
+  # }
+
+  # provisioner "remote-exec" {
+  #   when = destroy
+  #   inline = [
+  #     "sudo systemctl stop nginx"
+  #   ]
+  # }
 }
 
 resource "aws_security_group" "allow_ssh" {
