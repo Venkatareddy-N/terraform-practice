@@ -31,7 +31,7 @@ variable "ingress_cidr" {
 variable "tags" {
   type = map
   default = {
-    Name        = "DevOps-Server"
+    Name        = "02-variables"
     Environment = "Dev"
     Component   = "Backend"
     Terraform   = "True"

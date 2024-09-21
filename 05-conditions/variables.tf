@@ -35,7 +35,7 @@ variable "ingress_cidr" {
 variable "tags" {
   type = map(any)
   default = {
-    Name        = "DevOps-Server"
+    Name        = "05-conditions"
     Environment = "Dev"
     Component   = "Backend"
     Terraform   = "True"

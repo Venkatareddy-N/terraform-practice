@@ -5,7 +5,7 @@ resource "aws_instance" "terraform_server" {
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 
   tags = {
-    Name = "DevOps-Master"
+    Name = "06-data-sourses"
   }
 }
 
