@@ -1,11 +1,3 @@
-Notes
-=====
-
-
-1. tfvars
-2. terraform workspaces
-3. seperate repos
-
 Dev
 ====
 mysql-dev
