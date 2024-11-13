@@ -1,11 +1,18 @@
-resource "aws_instance" "expense" {
-  ami                    = data.aws_ami.devops_ami.id
-  instance_type          = var.instance_names[count.index] == "mysql" ? "t3.small" : "t3.micro"
+resource "aws_instance" "Server-1" {
+  ami                    = "ami-09c813fb71547fc4f"
+  instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-  count                  = length(var.instance_names)
-
   tags = {
-    Name = var.instance_names[count.index]
+    Name = "Server-1"
+  }
+}
+
+resource "aws_instance" "Server-2" {
+  ami                    = "ami-09c813fb71547fc4f"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+  tags = {
+    Name = "Server-2"
   }
 }
 
@@ -33,3 +40,6 @@ resource "aws_security_group" "allow_ssh" {
   }
 
 }
+
+
+
